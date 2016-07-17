@@ -16,8 +16,8 @@ var basePath = {
 
 elixir(function(mix) {
      mix.sass('app.scss');
-	  mix.copy(basePath.bower + '/metaphor/dist/css/metaphor.css','public/css/metaphor.css');
-	  mix.copy(basePath.bower + '/metaphor/dist/js/metaphor.js','public/js/metaphor.js');
+	  // mix.copy(basePath.bower + '/metaphor/dist/css/metaphor.css','public/css/metaphor.css');
+	  // mix.copy(basePath.bower + '/metaphor/dist/js/metaphor.js','public/js/metaphor.js');
 
 });
 
