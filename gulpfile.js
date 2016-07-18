@@ -12,12 +12,14 @@ var elixir = require('laravel-elixir');
  */
 var basePath = {
   bower: 'vendor/bower_components',
+  materialize: '/Materialize/bin/'
   };
 
 elixir(function(mix) {
      mix.sass('app.scss');
-	  // mix.copy(basePath.bower + '/metaphor/dist/css/metaphor.css','public/css/metaphor.css');
-	  // mix.copy(basePath.bower + '/metaphor/dist/js/metaphor.js','public/js/metaphor.js');
+     mix.scripts('app.js');
+	  mix.copy(basePath.bower + basePath.materialize +  'materialize.css','public/css/materialize.css');
+  	  mix.copy(basePath.bower + basePath.materialize +  'materialize.js','public/js/materialize.js');
 
 });
 
