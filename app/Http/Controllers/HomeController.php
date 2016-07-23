@@ -14,7 +14,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $except = ['loginSlack'];
+        $this->middleware('auth',['except' => $except]);
     }
 
     /**
@@ -25,5 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function loginSlack()
+    {
+        return \Socialize::with('slack')->scopes(['identity.basic,identity.email,identity.team,identity.avatar'])->redirect();
     }
 }

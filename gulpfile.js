@@ -10,16 +10,24 @@ var elixir = require('laravel-elixir');
  | file for our application, as well as publishing vendor resources.
  |
  */
-var basePath = {
-  bower: 'vendor/bower_components',
-  materialize: '/Materialize/bin/'
+ var ui_kit = {
+  js: 'assets/js',
   };
 
 elixir(function(mix) {
-     mix.sass('app.scss');
-     mix.scripts('app.js');
-	  mix.copy(basePath.bower + basePath.materialize +  'materialize.css','public/css/materialize.css');
-  	  mix.copy(basePath.bower + basePath.materialize +  'materialize.js','public/js/materialize.js');
-
+     // mix.sass('app.scss');
+     // mix.scripts('app.js');
+     mix.sass('material-kit.scss');
+     mix.scripts([
+     	"jquery.min.js",
+     	"bootstrap.min.js",
+     	"material.min.js",
+     	"nouislider.min.js",
+     	"bootstrap-datepicker.js",
+     	"jquery.dropdown.js",
+     	"jquery.tagsinput.js",
+     	"jasny-bootstrap.min.js",
+     	"material-kit.js",
+     	],'public/js/theme.js')
 });
 
