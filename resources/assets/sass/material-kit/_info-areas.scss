@@ -1,8 +1,6 @@
 .info{
     max-width: 360px;
     margin: 0 auto;
-    padding: 70px 0 30px;
-
     .icon{
         color: $gray-color;
 
@@ -15,7 +13,7 @@
         margin: $margin-base * 2 0 $margin-base;
     }
     p{
-        color: $gray-color;
+        color: $black-color;
     }
 }
 
@@ -51,7 +49,13 @@
     &.icon-danger{
         color: $brand-danger;
     }
-    &.icon-rose{
-        color: $brand-rose;
+    &.icon-purple{
+        color: $brand-purple;
+    }
+    &.icon-black{
+        color: $black;
+    }
+    &.icon-white{
+        color: white;
     }
 }

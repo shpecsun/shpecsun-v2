@@ -123,3 +123,25 @@
         margin-bottom: 0;
     }
 }
+.subscribe-line-black{
+        position: absolute;
+        z-index: 3;
+        bottom: -50px;
+        padding-bottom: 100px;
+        padding-top:20px;
+        [class*="col-"]{
+        border-right: 1px solid $black;
+
+        &:last-child{
+            border: 0;
+        }
+        &.email{
+            border:0;
+        }
+    }
+    @include radial-gradient($black,$grey-800);
+
+    [class*="col-"]{
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}

@@ -7,6 +7,7 @@
 }
 .section-gray{
     background: #E5E5E5;
+    padding:50px;
 }
 .section-light-gray{
     background: #eee;
@@ -51,6 +52,7 @@
 }
 .section-dark,
 .section-image{
+    padding:80px;
     background-color: #343434;
     background-size: 200% 240%;
     @include radial-gradient(#232323,#585858);

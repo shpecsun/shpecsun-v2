@@ -2608,6 +2608,9 @@ select.form-control[multiple], .form-group.is-focused select.form-control[multip
   color: #fff;
   padding-top: 25px;
 }
+.navbar.navbar-transparent .logo-container .logo{
+  background-image: url('assets/branding.png');
+}
 .navbar.navbar-transparent .logo-container .brand {
   color: #FFFFFF;
 }

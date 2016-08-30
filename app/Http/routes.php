@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 Route::get('slack','HomeController@loginSlack');
 Route::auth();
-Route::get('/home', 'HomeController@index');
+Route::get('home', 'HomeController@index');
+Route::get('profile',function(){
+	return view('profile');
+});
 

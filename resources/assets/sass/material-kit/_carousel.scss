@@ -1,10 +1,11 @@
 .carousel{
     .carousel-control{
+        color:$black;
+        width:5%;
         &.left,
         &.right{
             background-image: none;
         }
-
         &.right{
             i{
                 right: 0;
@@ -17,7 +18,7 @@
     }
     &.carousel-full-nagivation{
         .carousel-control{
-            width: 50%;
+            width: 5%;
 
             &.left,
             &.right{
@@ -40,18 +41,29 @@
     .carousel-control{
         &.left{
             left: -25px;
+            .material-icons{
+                position: absolute;
+                top: 50%;
+                z-index: 5;
+                display: inline-block;
+                font-size: 50px;
+                margin-top: -15px;
+                left:0;
+            }
         }
         &.right{
             left: auto;
+            .material-icons{
+                position: absolute;
+                top: 50%;
+                z-index: 5;
+                display: inline-block;
+                font-size: 50px;
+                margin-top: -15px;
+                right:0;
+            }
         }
-        .material-icons{
-            position: absolute;
-            top: 50%;
-            z-index: 5;
-            display: inline-block;
-            font-size: 50px;
-            margin-top: -15px;
-        }
+
     }
     .carousel-indicators{
         bottom: 5px;

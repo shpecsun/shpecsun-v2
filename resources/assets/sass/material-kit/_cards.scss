@@ -37,7 +37,7 @@
         .card-title {
             position: absolute;
             bottom: 15px;
-            left: 15px;
+            right: 15px;
             color: $mdb-card-image-headline;
             font-size: $font-size-h4;
             text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5);
@@ -208,8 +208,8 @@
             color: $gray-color;
 
             .material-icons{
-                position: relative;
-                top: 4px;
+                // position: relative;
+                // top: 4px;
                 font-size: 18px;
             }
         }
@@ -573,4 +573,12 @@
     .card-description{
         text-align: center;
     }
+}
+
+.card-showcase{
+    margin-top: 105px;
+    .card-image{
+        max-width: 80%;
+    };
+
 }

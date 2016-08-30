@@ -73,25 +73,25 @@
       color: $variation-color-text;
     }
   }
-  .dropdown-menu {
-    border-radius: $border-radius-base !important;
-    li > a {
-      &:hover,
-      &:focus {
-        color: $white-color;
-        background-color: $variation-color;
-      }
-    }
+  // .dropdown-menu {
+  //   border-radius: $border-radius-base !important;
+  //   li > a {
+  //     &:hover,
+  //     &:focus {
+  //       color: $white-color;
+  //       background-color: $variation-color;
+  //     }
+  //   }
 
-    .active > a {
-      &:hover,
-      &:focus {
-        color: $variation-color-text;
-      }
-      background-color: $variation-color;
-      color: $variation-color-text;
-    }
-  }
+  //   .active > a {
+  //     &:hover,
+  //     &:focus {
+  //       color: $variation-color-text;
+  //     }
+  //     background-color: $variation-color;
+  //     color: $variation-color-text;
+  //   }
+  // }
 }
 
 // alert-variations("", $brand-primary)

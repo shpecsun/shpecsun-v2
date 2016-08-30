@@ -45,3 +45,8 @@
 .media>.pull-left{
     padding: 10px;
 }
+.media-cover {
+  object-fit: cover;
+  width: 350px;
+  height: 100px;
+}
