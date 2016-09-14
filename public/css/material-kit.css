@@ -3238,9 +3238,7 @@ h2.title {
     text-align: center; }
 
 .card-showcase {
-  margin-top: 105px; }
-  .card-showcase .card-image {
-    max-width: 80%; }
+  margin-top: 50px; }
 
 .modal-content {
   box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);

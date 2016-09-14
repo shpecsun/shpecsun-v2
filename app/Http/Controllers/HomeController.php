@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
+use App\Board;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
@@ -33,6 +34,16 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        $instaPost = $this->socialMedia();
+        $members['board'] = Board::where('position_group','board')->get();
+        $members['chair'] = Board::where('position_group','chair')->get();
+        return view('index',compact('instaPost','members'));
+    }
+
+
+
+    private function socialMedia()
     {
         // $fbAPIGraphBase = "https://graph.facebook.com/v2.7";
         // $fb_access_token = env('fb_access_token');
@@ -63,7 +74,7 @@ class HomeController extends Controller
         foreach ($instaPost as &$post) {
             $post['caption']['created_time'] = date('F d, Y - h:i A',$post['caption']['created_time']);
         }
-        return view('index',compact('instaPost'));
+        return $instaPost;
     }
 
     public function loginSlack()
