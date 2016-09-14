@@ -295,7 +295,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
-                <h2 class="title"><shpe class="logo-shpe"></shpe> SHPE CSUN Board Members</h2>
+                <h2 class="title">SHPE CSUN Board Members</h2>
              </div>
         </div>
         @foreach($members['board']->chunk(2) as $row)
