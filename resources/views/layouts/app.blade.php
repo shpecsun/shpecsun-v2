@@ -58,7 +58,7 @@
                     <i class="fa fa-instagram"></i>
                 </a>
             </li>
-            <li class="dropdown">
+{{--             <li class="dropdown">
                 @if (Auth::user())
                 <a href="#pablo" class="profile-photo dropdown-toggle" data-toggle="dropdown">
                   <div class="navbar-text pull-left">{{ Auth::user()->first_name }}</div>
@@ -92,7 +92,7 @@
                     <li><a href="{{url('/profile')}}">Profile</a></li>
                 </ul>
                 @endif
-            </li>
+            </li> --}}
        </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-->

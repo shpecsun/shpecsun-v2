@@ -306,7 +306,7 @@
                         <div class="col-md-5 col-xs-4">
                             <div class="card-image">
                             {{-- {{ asset("images/board/$person->image") }} --}}
-                                <img class="img" src="http://placehold.it/200x200">
+                                <img class="img" src="/images/members/{{$person->photo}}">
                             </div>
                         </div>
                         <div class="col-md-7 col-xs-8">
@@ -341,8 +341,7 @@
                 <div class="card card-profile card-plain">
                         <div class="col-md-6 col-md-offset-3 col-xs-3">
                             <div class="card-image">
-                            {{-- {{ asset("images/board/$person->image") }} --}}
-                                <img class="img" src="http://placehold.it/200x200">
+                                <img class="img" src="/images/members/{{$person->photo}}">
                             </div>
                         </div>
                         <div class="col-md-12 col-xs-4">
