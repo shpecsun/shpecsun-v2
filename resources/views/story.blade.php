@@ -29,7 +29,7 @@
             <a name="story"></a>
                 <div class="row" >
     				<div class="col-md-8 col-md-offset-2">
-    					<p class="blog-p">{{$blog->content}}</p>
+    					<p class="blog-p">{{nl2br($blog->content)}}</p>
 					</div>
 				</div>
                 <div class="row">

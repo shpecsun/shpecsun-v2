@@ -59,7 +59,7 @@
 							<a href="{{ url('stories/'.$blog[2]->slug) }}">
 								<h3 class="card-title">{{$blog[2]->title}}</h3>
 							</a>
-							<p class="card-description">{{$blog[1]->summary}}</p>
+							<p class="card-description">{{$blog[2]->summary}}</p>
 							<a href="{{ url('stories/'.$blog[2]->slug) }}" class="btn btn-primary btn-round">
 								<i class="material-icons">subject</i> Read {{$blog[2]->type}}
 							</a>
