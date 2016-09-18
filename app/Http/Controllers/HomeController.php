@@ -2,30 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use  \Socialize;
-use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Http\Requests;
 use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
+use App\boardmembers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
-
 use GuzzleHttp\Exception\RequestException;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $except = ['loginSlack','index'];
-        $this->middleware('auth',['except' => $except]);
-    }
 
     /**
      * Show the application dashboard.
@@ -33,6 +23,16 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        $instaPost = $this->socialMedia();
+        $members['board'] = boardmembers::where('position_group','board')->get();
+        $members['chair'] = boardmembers::where('position_group','chair')->get();
+        return view('index',compact('instaPost','members'));
+    }
+
+
+
+    private function socialMedia()
     {
         // $fbAPIGraphBase = "https://graph.facebook.com/v2.7";
         // $fb_access_token = env('fb_access_token');
@@ -62,8 +62,9 @@ class HomeController extends Controller
 
         foreach ($instaPost as &$post) {
             $post['caption']['created_time'] = date('F d, Y - h:i A',$post['caption']['created_time']);
+            $post['caption']['text'] = Str::words($post['caption']['text'],40," ...");
         }
-        return view('index',compact('instaPost'));
+        return $instaPost;
     }
 
     public function loginSlack()
@@ -71,3 +72,4 @@ class HomeController extends Controller
         return Socialize::with('slack')->scopes(['identity.basic,identity.email,identity.team,identity.avatar'])->redirect();
     }
 }
+

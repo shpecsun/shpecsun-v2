@@ -2,7 +2,7 @@
 
 @section('title', 'SHPE CSUN')
 
-{{-- @section('notification')
+@section('notification')
 <div class="alert alert-danger">
      <div class="container">
          <div class="alert-icon">
@@ -14,7 +14,7 @@
          <b>Upcoming Meeting!</b> We are meeting today at 7:00 PM @ the USU.
     </div>
 </div>
-@endsection --}}
+@endsection
 
 
 @section('content')
@@ -106,9 +106,9 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                <div class="card card-plain card-showcase col-xs-offset-1">
+                <div class="card card-plain card-showcase">
                     <div class="card-image">
-                        <img class="img-responsive" src="https://placehold.it/250x350">
+                        <img class="img-responsive" src="{{ asset('images/shpenila2015.jpg') }}">
                     <div class="ripple-container"></div>
                     </div>
                     </div>
@@ -160,7 +160,7 @@
                                     <i class="material-icons">access_time</i> Latest Post - {{$instaPost[0]['caption']['created_time']}}
                                 </h6>
                                 <p class="card-description">
-                                    {{ Str::words($instaPost[0]['caption']['text'],40," ...") }}
+                                    {{ $instaPost[0]['caption']['text']}}
                                 </p>
                                 <div class="footer">
                                     <div class="author">
@@ -234,20 +234,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center">
-                <h2 class="title">Where Our Members are Now!</h2>
+                <h2 class="title">Our Members Go Farther!</h2>
                 <h5 class="description">SHPE CSUN member's begin their professional career with skills and knowledge to succeed in their given field.</h5>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 col-md-offset-2">
                 <div class="card card-testimonial">
                     <div class="icon">
                         <i class="material-icons">format_quote</i>
                     </div>
                     <div class="content">
                         <h5 class="card-description">
-                                I often felt that I had more questions than answers and it was through SHPE that I learned that this was okay. My advise to future members is to strive to create your own path from lessons learned of those that have already started their journey; if you fail to obtain the internship, fellowship, or scholarship you wanted do not give up on yourself because there is an opportunity waiting for you - you just have to be willing to find it.
+                                I often felt that I had more questions than answers and it was through SHPE that I learned that this was okay. My advise to future members is to strive to create your own path from lessons learned of those that have already started their journey; if you fail to obtain the internship, fellowship, or scholarship you wanted do not give up on yourself because there is an opportunity waiting for you - you just have to be willing to find it.<br><a href="{{url('stories/michael-perez')}}">Read More...</a>
                         </h5>
                     </div>
 
@@ -262,30 +262,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="card card-testimonial">
-                    <div class="icon">
-                        <i class="material-icons">format_quote</i>
-                    </div>
-                    <div class="content">
-                        <h5 class="card-description">
-                            "Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est."
-                        </h5>
-                    </div>
-
-                    <div class="footer">
-                        <h4 class="card-title">Hector Perez, Ph.D.</h4>
-                        <h6 class="category">UC Berkeley - Recent Ph.D. Graduate</h6>
-                        <div class="card-avatar">
-                            <a href="#pablo">
-                                <img class="img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAUmAAAAJDVlYmU1ZTgxLTc2NjQtNDIwNi04NjBmLWEyNGY0YzQwMGJlNw.jpg">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="col-md-4">
                 <div class="card card-testimonial">
                     <div class="icon">
@@ -294,7 +270,7 @@
                     <div class="content">
                         <h5 class="card-description">
                             "...Each and every day SHPE has helped me grow and they have accepted me into their <i>familia</i>. With their help and encouragement, I joined the executive board; I might have been rushing into everything, but I knew the SHPE familia was going to be there to support me. Because of SHPE, I not only have more friends, but I am now part of a familia. 
-                            <u>Joining SHPE was one of the best decisions I have made</u>"
+                            <u>Joining SHPE was one of the best decisions I have made</u>"<br><a href="{{url('stories/vanessa-quintero')}}">Read More...</a>
                         </h5>
                     </div>
 
@@ -319,167 +295,81 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
-                <h2 class="title"><shpe class="logo-shpe"></shpe> SHPE CSUN Board Members</h2>
-                <h5 class="description">"<i>Board Mission Statement</i>"</h5>
-            </div>
+                <h2 class="title">SHPE CSUN Board Members</h2>
+             </div>
         </div>
-        <div class="row">
-            <div id="carousel-board" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        @for($i=0;$i<4;$i++)
-                            <div class="col-md-6">
-                                <div class="card card-profile card-plain">
-                                    <div class="col-md-5 col-xs-4">
-                                        <div class="card-image">
-                                            <a href="#pablo">
-                                                <img class="img" src="https://placehold.it/200x200">
-                                            </a>
-                                        <div class="ripple-container"></div></div>
-                                    </div>
-                                    <div class="col-md-7 col-xs-8">
-                                        <div class="content">
-                                            <h4 class="card-title">Person's Name</h4>
-                                            <h6 class="category text-muted">Position of ______ </h6>
+        @foreach($members['board']->chunk(2) as $row)
+            <div class="row">
+            @foreach($row as $person)
+                <div class="col-md-6">
+                    <div class="card card-profile card-plain">
+                        <div class="col-md-5 col-xs-4">
+                            <div class="card-image">
+                            {{-- {{ asset("images/board/$person->image") }} --}}
+                                <img class="img" src="/images/members/{{$person->photo}}">
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-xs-8">
+                            <div class="content">
+                                <h4 class="card-title">{{$person->display_name}}</h4>
+                                <h6 class="category text-muted">{{$person->position_name}}</h6>
 
-                                            <p class="card-description">
-                                                Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.
-                                            </p>
+                                <p class="card-description">{{$person->quote}}</p>
 
-                                            <div class="footer">
-                                               <a href="#pablo" class="btn btn-just-icon btn-simple" style="color:#3EB890"><i class="fa fa-slack"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-linkedin"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple" style="color:purple" ><i class="fa fa-instagram"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="footer">
+                                    <a href="mailto:{{$person->email}}" class="btn btn-just-icon btn-simple"><i class="fa fa-envelope"></i></a>
+                                    @if($person->slack)<a href="{{$person->slack}}" class="btn btn-just-icon btn-simple" style="color:#3EB890"><i class="fa fa-slack"></i></a>@endif
+                                    @if($person->linkedin)<a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-linkedin"></i></a>@endif
+                                    @if($person->instagram)<a href="#pablo" class="btn btn-just-icon btn-simple" style="color:purple" ><i class="fa fa-instagram"></i></a>@endif
+                                    @if($person->facebook)<a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook"></i></a>@endif
                                 </div>
                             </div>
-                        @endfor
-                    </div>
-                    <div class="item">
-                        @for($i=0;$i<4;$i++)
-                            <div class="col-md-6">
-                                <div class="card card-profile card-plain">
-                                    <div class="col-md-5 col-xs-4">
-                                        <div class="card-image">
-                                            <a href="#pablo">
-                                                <img class="img" src="https://placehold.it/200x200">
-                                            </a>
-                                        <div class="ripple-container"></div></div>
-                                    </div>
-                                    <div class="col-md-7 col-xs-8">
-                                        <div class="content">
-                                            <h4 class="card-title">Person's Name</h4>
-                                            <h6 class="category text-muted">Position of ______ </h6>
-
-                                            <p class="card-description">
-                                                Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.
-                                            </p>
-
-                                            <div class="footer">
-                                               <a href="#pablo" class="btn btn-just-icon btn-simple" style="color:#3EB890"><i class="fa fa-slack"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-linkedin"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple" style="color:purple" ><i class="fa fa-instagram"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endfor
+                        </div>
                     </div>
                 </div>
-                <a class="left carousel-control" href="#carousel-board" role="button" data-slide="prev">
-                    <i class="material-icons" aria-hidden="true">chevron_left</i>
-                </a>
-                <a class="right carousel-control" href="#carousel-board" role="button" data-slide="next">
-                    <i class="material-icons" aria-hidden="true">chevron_right</i>
-                </a>
+            @endforeach 
             </div>
-        </div>
+        @endforeach
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
                 <h3 class="title">Chair Members</h3>
             </div>
         </div>
         <div class="row">
-            <div id="carousel-chairs" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        @for($i=0;$i<2;$i++)
-                            <div class="col-md-6">
-                                <div class="card card-profile card-plain">
-                                    <div class="col-md-5 col-xs-4">
-                                        <div class="card-image">
-                                            <a href="#pablo">
-                                                <img class="img" src="https://placehold.it/200x200">
-                                            </a>
-                                        <div class="ripple-container"></div></div>
-                                    </div>
-                                    <div class="col-md-7 col-xs-8">
-                                        <div class="content">
-                                            <h4 class="card-title">Person's Name</h4>
-                                            <h6 class="category text-muted">Position of ______ </h6>
+               @foreach($members['chair']->chunk(2) as $row)
+                <div class="row">
+                @foreach($row as $person)
+                    <div class="col-md-6">
+                        <div class="card card-profile card-plain">
+                            <div class="col-md-5 col-xs-4">
+                                <div class="card-image">
+                                {{-- {{ asset("images/board/$person->image") }} --}}
+                                    <img class="img" src="/images/members/{{$person->photo}}">
+                                </div>
+                            </div>
+                            <div class="col-md-7 col-xs-8">
+                                <div class="content">
+                                    <h4 class="card-title">{{$person->display_name}}</h4>
+                                    <h6 class="category text-muted">{{$person->position_name}}</h6>
 
-                                            <p class="card-description">
-                                                Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.
-                                            </p>
+                                    <p class="card-description">{{$person->quote}}</p>
 
-                                            <div class="footer">
-                                               <a href="#pablo" class="btn btn-just-icon btn-simple" style="color:#3EB890"><i class="fa fa-slack"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-linkedin"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple" style="color:purple" ><i class="fa fa-instagram"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook"></i></a>
-                                            </div>
-                                        </div>
+                                    <div class="footer">
+                                        <a href="mailto:{{$person->email}}" class="btn btn-just-icon btn-simple"><i class="fa fa-envelope"></i></a>
+                                        @if($person->slack)<a href="{{$person->slack}}" class="btn btn-just-icon btn-simple" style="color:#3EB890"><i class="fa fa-slack"></i></a>@endif
+                                        @if($person->linkedin)<a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-linkedin"></i></a>@endif
+                                        @if($person->instagram)<a href="#pablo" class="btn btn-just-icon btn-simple" style="color:purple" ><i class="fa fa-instagram"></i></a>@endif
+                                        @if($person->facebook)<a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook"></i></a>@endif
                                     </div>
                                 </div>
                             </div>
-                        @endfor
+                        </div>
                     </div>
-                    <div class="item">
-                        @for($i=0;$i<2;$i++)
-                            <div class="col-md-6">
-                                <div class="card card-profile card-plain">
-                                    <div class="col-md-5 col-xs-4">
-                                        <div class="card-image">
-                                            <a href="#pablo">
-                                                <img class="img" src="https://placehold.it/200x200">
-                                            </a>
-                                        <div class="ripple-container"></div></div>
-                                    </div>
-                                    <div class="col-md-7 col-xs-8">
-                                        <div class="content">
-                                            <h4 class="card-title">Person's Name</h4>
-                                            <h6 class="category text-muted">Chair of ______ </h6>
-
-                                            <p class="card-description">
-                                                Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.
-                                            </p>
-
-                                            <div class="footer">
-                                               <a href="#pablo" class="btn btn-just-icon btn-simple" style="color:#3EB890"><i class="fa fa-slack"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-linkedin"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple" style="color:purple" ><i class="fa fa-instagram"></i></a>
-                                                <a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endfor
-                    </div>
+                @endforeach 
                 </div>
-                <a class="left carousel-control" href="#carousel-chairs" role="button" data-slide="prev">
-                    <i class="material-icons" aria-hidden="true">chevron_left</i>
-                </a>
-                <a class="right carousel-control" href="#carousel-chairs" role="button" data-slide="next">
-                    <i class="material-icons" aria-hidden="true">chevron_right</i>
-                </a>
+            @endforeach
             </div>
-        </div>
+
     </div>
 </div>
 

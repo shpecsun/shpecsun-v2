@@ -1,4 +1,6 @@
-var elixir = require('laravel-elixir');
+const elixir = require('laravel-elixir');
+
+require('laravel-elixir-vue');
 
 /*
  |--------------------------------------------------------------------------
@@ -10,7 +12,7 @@ var elixir = require('laravel-elixir');
  | file for our application, as well as publishing vendor resources.
  |
  */
- var ui_kit = {
+  var ui_kit = {
   js: 'assets/js',
   };
 
@@ -30,4 +32,3 @@ elixir(function(mix) {
      	"material-kit.js",
      	],'public/js/theme.js')
 });
-
