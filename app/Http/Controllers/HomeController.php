@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
 use App\boardmembers;
-use App\Blog;
+use App\blog;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
