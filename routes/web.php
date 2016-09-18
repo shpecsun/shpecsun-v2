@@ -12,14 +12,10 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('stories', 'HomeController@stories');
+Route::get('stories/{slug}','HomeController@story');
 Route::get('slack','HomeController@loginSlack');
-
-
 Auth::routes();
-
-Route::get('blog', function() {
-   return view('blog');
-});
 Route::get('profile',function(){
 	return view('profile');
 });

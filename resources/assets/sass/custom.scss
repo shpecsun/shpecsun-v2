@@ -102,5 +102,12 @@ shpe {
 .logo-shpe:before {
   content: "\73";
 }
+.blog-p::first-letter{   
+    float: left;  
+    font-weight: 500;
+    font-size: 3em;
+    font-family: "Oswald", "Times New Roman", serif; 
+    line-height: 40px; padding-right: 4px; padding-left: 3px;
+  }
 
 

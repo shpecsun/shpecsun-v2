@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'SHPE CSUN')
+@section('title', 'Society of Hispanic Professioanl Engineers CSUN')
 
 @section('notification')
 <div class="alert alert-danger">
@@ -240,28 +240,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4 col-md-offset-2">
-                <div class="card card-testimonial">
-                    <div class="icon">
-                        <i class="material-icons">format_quote</i>
-                    </div>
-                    <div class="content">
-                        <h5 class="card-description">
-                                I often felt that I had more questions than answers and it was through SHPE that I learned that this was okay. My advise to future members is to strive to create your own path from lessons learned of those that have already started their journey; if you fail to obtain the internship, fellowship, or scholarship you wanted do not give up on yourself because there is an opportunity waiting for you - you just have to be willing to find it.<br><a href="{{url('stories/michael-perez')}}">Read More...</a>
-                        </h5>
-                    </div>
-
-                    <div class="footer">
-                        <h4 class="card-title">Michael Perez</h4>
-                        <h6 class="category">Design Engineer - Esterline Mason <br><small>B.S. in Mechanical Engineering - CSUN 2015</small></h6>
-                        <div class="card-avatar">
-                            <a href="#pablo">
-                                <img class="img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAZYAAAAJDY3ZWY4ZWUxLWNlOTktNDcxNy05N2QxLWRlMmU4M2ExMmRiYw.jpg">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @foreach($blogs as $blog)
             <div class="col-md-4">
                 <div class="card card-testimonial">
                     <div class="icon">
@@ -269,23 +248,24 @@
                     </div>
                     <div class="content">
                         <h5 class="card-description">
-                            "...Each and every day SHPE has helped me grow and they have accepted me into their <i>familia</i>. With their help and encouragement, I joined the executive board; I might have been rushing into everything, but I knew the SHPE familia was going to be there to support me. Because of SHPE, I not only have more friends, but I am now part of a familia. 
-                            <u>Joining SHPE was one of the best decisions I have made</u>"<br><a href="{{url('stories/vanessa-quintero')}}">Read More...</a>
+                                {{$blog->summary}}<br><a href="{{url('stories/'.$blog->slug)}}">Read More...</a>
                         </h5>
                     </div>
 
                     <div class="footer">
-                        <h4 class="card-title">Vanessa Quintero</h4>
-                        <h6 class="category">Intern at NASA Jet Propulsion Laboratory <br> <small>2nd Year Electrical Engineering Student CSUN</small></h6>
+                        <h4 class="card-title">{{$blog->author}}</h4>
+                        <h6 class="category">{{$blog->status}}<br><small>{{$blog->degree}}</small></h6>
                         <div class="card-avatar">
-                            <a href="#pablo">
-                                <img class="img" src="http://placehold.it/200x200">
-                            </a>
+                            @if(str_contains($blog->author_image->source,'http'))
+                                <img class="img" src="{{$blog->author_image->source}}">
+                            @else
+                                <img class="img" src="{{ asset("images/".$blog->author_image->source) }}">
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
-
+            @endforeach
         </div>
 
     </div>
@@ -305,23 +285,20 @@
                     <div class="card card-profile card-plain">
                         <div class="col-md-5 col-xs-4">
                             <div class="card-image">
-                            {{-- {{ asset("images/board/$person->image") }} --}}
-                                <img class="img" src="/images/members/{{$person->photo}}">
+                                <img class="img" src="{{ asset("/images/".$person->image->source) }}">
                             </div>
                         </div>
                         <div class="col-md-7 col-xs-8">
                             <div class="content">
                                 <h4 class="card-title">{{$person->display_name}}</h4>
                                 <h6 class="category text-muted">{{$person->position_name}}</h6>
-
+                                <h6 class="category text-muted">Studies {{$person->degree}}</h6>
                                 <p class="card-description">{{$person->quote}}</p>
-
                                 <div class="footer">
-                                    <a href="mailto:{{$person->email}}" class="btn btn-just-icon btn-simple"><i class="fa fa-envelope"></i></a>
-                                    @if($person->slack)<a href="{{$person->slack}}" class="btn btn-just-icon btn-simple" style="color:#3EB890"><i class="fa fa-slack"></i></a>@endif
-                                    @if($person->linkedin)<a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-linkedin"></i></a>@endif
-                                    @if($person->instagram)<a href="#pablo" class="btn btn-just-icon btn-simple" style="color:purple" ><i class="fa fa-instagram"></i></a>@endif
-                                    @if($person->facebook)<a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook"></i></a>@endif
+                                    <a href="mailto:{{$person->email}}" class="btn btn-just-icon btn-simple btn-primary"><i class="fa fa-envelope"></i></a>
+                                    @foreach($person->links as $link)
+                                        <a target="_blank" href="{{$link->link}}" class="btn btn-just-icon btn-simple btn-{{$link->type}}"><i class="fa {{$link->fa_icon}}"></i></a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -339,27 +316,26 @@
                @foreach($members['chair']->chunk(2) as $row)
                 <div class="row">
                 @foreach($row as $person)
-                    <div class="col-md-6">
+                    <div class="col-xs-6">
                         <div class="card card-profile card-plain">
-                            <div class="col-md-5 col-xs-4">
+                            <div class="col-md-4 col-xs-8 col-xs-offset-2">
                                 <div class="card-image">
-                                {{-- {{ asset("images/board/$person->image") }} --}}
-                                    <img class="img" src="/images/members/{{$person->photo}}">
+                                <img class="img" src="{{ asset("/images/".$person->image->source) }}">
                                 </div>
                             </div>
-                            <div class="col-md-7 col-xs-8">
+                            <div class="col-md-6 col-xs-12">
                                 <div class="content">
                                     <h4 class="card-title">{{$person->display_name}}</h4>
                                     <h6 class="category text-muted">{{$person->position_name}}</h6>
+                                    <h6 class="category text-muted">Studies {{$person->degree}}</h6>
 
                                     <p class="card-description">{{$person->quote}}</p>
 
                                     <div class="footer">
-                                        <a href="mailto:{{$person->email}}" class="btn btn-just-icon btn-simple"><i class="fa fa-envelope"></i></a>
-                                        @if($person->slack)<a href="{{$person->slack}}" class="btn btn-just-icon btn-simple" style="color:#3EB890"><i class="fa fa-slack"></i></a>@endif
-                                        @if($person->linkedin)<a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-linkedin"></i></a>@endif
-                                        @if($person->instagram)<a href="#pablo" class="btn btn-just-icon btn-simple" style="color:purple" ><i class="fa fa-instagram"></i></a>@endif
-                                        @if($person->facebook)<a href="#pablo" class="btn btn-just-icon btn-simple btn-facebook"><i class="fa fa-facebook"></i></a>@endif
+                                    <a href="mailto:{{$person->email}}" class="btn btn-just-icon btn-simple btn-primary"><i class="fa fa-envelope"></i></a>
+                                    @foreach($person->links as $link)
+                                        <a target="_blank" href="{{$link->link}}" class="btn btn-just-icon btn-simple btn-{{$link->type}}"><i class="fa {{$link->fa_icon}}"></i></a>
+                                    @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -369,7 +345,6 @@
                 </div>
             @endforeach
             </div>
-
     </div>
 </div>
 

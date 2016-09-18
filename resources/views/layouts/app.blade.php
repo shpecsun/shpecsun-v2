@@ -28,7 +28,7 @@
     <meta name="msapplication-config" content="{{ asset('fav/browserconfig.xml')}}">
     <meta name="theme-color" content="#000000">
 
-    <link href="css/material-kit.css" rel="stylesheet"/>
+    <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet"/>
     @yield('notification')
 </head>
 <nav class="navbar navbar-transparent navbar-absolute">
@@ -44,7 +44,7 @@
     <div class="collapse navbar-collapse" id="mobile-nav">
       <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="https://twitter.com/shpe_csun">
+                <a href="https://twitter.com/shpecsun">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -97,6 +97,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-->
 </nav>
+
 <body @yield('bodyTag')>
     @yield('content')
 </body>
@@ -120,9 +121,8 @@
         </div>
     </div>
 </footer>
-
 <!--   Core JS Files   -->
-    <script src="js/theme.js" type="text/javascript"></script>
+    <script src="{{asset('js/theme.js')}}" type="text/javascript"></script>
     <!-- Plugin For Google Maps -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 

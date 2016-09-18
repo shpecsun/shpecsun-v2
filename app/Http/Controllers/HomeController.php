@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
 use App\boardmembers;
+use App\Blog;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
@@ -25,9 +26,20 @@ class HomeController extends Controller
     public function index()
     {
         $instaPost = $this->socialMedia();
-        $members['board'] = boardmembers::where('position_group','board')->get();
-        $members['chair'] = boardmembers::where('position_group','chair')->get();
-        return view('index',compact('instaPost','members'));
+        $members['board'] = boardmembers::where('position_group','board')->with('image','links')->get();
+        $members['chair'] = boardmembers::where('position_group','chair')->with('image','links')->get();
+        $blogs = blog::with('author_image')->take(3)->get();
+        return view('index', compact('instaPost','members','blogs'));
+    }
+    public function stories()
+    {
+        $blogs = blog::with('banner_image')->inRandomOrder()->get();
+        return view('blogs',compact('blogs'));
+    }
+    public function story($slug)
+    {
+        $blog = blog::where('slug',$slug)->with('author_image','banner_image')->first();
+        return view('story',compact('blog'));
     }
 
 
