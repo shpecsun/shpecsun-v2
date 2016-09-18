@@ -17,6 +17,7 @@ class CreateBoardmembersTable extends Migration
             $table->increments('id');
             $table->integer('order');
             $table->string('display_name');
+            $table->string('degree');
             $table->string('email')->unique();
             $table->string('position_group');
             $table->string('position_name');
