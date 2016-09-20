@@ -37,7 +37,7 @@
 						<hr/>
 						<div class="card card-profile card-plain">
 							<div class="row">
-								<div class="col-xs-2">
+								<div class="col-sm-5 col-xs-5 ">
 									<div class="card-avatar">
 			                        	@if(str_contains($blog->author_image->source,'http'))
 			                                <img class="img" src="{{$blog->author_image->source}}">
@@ -46,18 +46,18 @@
 			                            @endif									
 			                            <div class="ripple-container"></div></div>
 								</div>
-								<div class="col-xs-6">
+								<div class="col-sm-4 col-xs-7">
 									<h4 class="card-title text-left">{{$blog->author}}</h4>
 									<p class="description text-left">{{$blog->status}}</p>
 								</div>
-								<div class="col-xs-4">
+{{-- 								<div class="col-xs-4">
 									<a href="#pablo" class="btn btn-twitter btn-round pull-right">
 										<i class="fa fa-twitter"></i> 910
 									</a>
 									<a href="#pablo" class="btn btn-facebook btn-round pull-right">
 										<i class="fa fa-facebook-square"></i> 872
 									</a>
-							</div>
+								</div> --}}
 							</div>
 						</div>
 					</div>
