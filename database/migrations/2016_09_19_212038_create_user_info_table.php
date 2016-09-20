@@ -18,7 +18,7 @@ class CreateUserInfoTable extends Migration
             $table->string('user_id');
             $table->string('gender');
             $table->string('address');
-            $table->string('phone_number')
+            $table->string('phone_number');
             $table->string('ethnicity');
             $table->string('degree');
             $table->string('dob');
