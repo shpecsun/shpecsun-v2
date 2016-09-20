@@ -16,10 +16,13 @@ class CreateBlogsTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->increments('id')->index();
             $table->string('slug');
+            $table->string('type');
             $table->string('title');
             $table->text('summary');
             $table->text('content');
             $table->string('author');
+            $table->string('status');
+            $table->string('degree');
             $table->timestamps();
         });
     }
