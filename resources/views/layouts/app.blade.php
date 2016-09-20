@@ -33,15 +33,15 @@
 </head>
 <nav class="navbar navbar-transparent navbar-absolute">
   <div class="container">
-    <div class="nav navbar-nav navbar-left">
+    <div class="nav navbar-nav navbar-left col-xs-6">
       <div class="logo-container disabled">
         <a href="{{ url('/') }}">
-            <div class="logo"><img src="{{ asset('images/branding.png') }}" class="img-responsive" alt=""></div>
+            <div class="logo"><img src="{{ asset('/images/branding.png') }}" class="img-responsive" alt=""></div>
         </a>
       </div>
     </div>
 
-    <div class="collapse navbar-collapse" id="mobile-nav">
+    <div class="collapse navbar-collapse navbar-right col-xs-5" id="mobile-nav">
       <ul class="nav navbar-nav navbar-right">
             <li>
                 <a href="https://twitter.com/shpecsun">
@@ -58,25 +58,27 @@
                     <i class="fa fa-instagram"></i>
                 </a>
             </li>
+            <li>
+                <a href="http://slack.shpecsun.org">
+                    <i class="fa fa-slack"></i>
+                </a>
+            </li>
 {{--             <li class="dropdown">
                 @if (Auth::user())
                 <a href="#pablo" class="profile-photo dropdown-toggle" data-toggle="dropdown">
-                  <div class="navbar-text pull-left">{{ Auth::user()->first_name }}</div>
+                  <div class="navbar-text pull-left">{{ strtok(Auth::user()->name,' ') }}</div>
                    <div class="pull-right">
                        <div class="profile-photo-small">
-                            <img src="" alt="Circle Image" class="img-circle img-responsive">
+                            <img src="{{ asset( 'images'.Auth::user()->profile()->source ) }}" alt="Circle Image" class="img-circle img-responsive">
                         </div>
                     </div> 
                 </a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">
-                        {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} 
+                        {{ Auth::user()->name }}
                     </li>
                     <li>
-                        <a href="#pablo">Profile</a>
-                    </li>
-                    <li>
-                        <a href="#pablo">Settings and other stuff</a>
+                        <a href="{{ url('profile') }}">Profile</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}">Sign out</a></li>
@@ -98,32 +100,48 @@
   </div><!-- /.container-->
 </nav>
 
-<body @yield('bodyTag')>
+<body class="@yield('bodyTag')">
     @yield('content')
-</body>
-<footer class="footer footer-light-grey footer-big">
-    <div class="container">
-        <ul class="pull-left">
-            <li>
-                <a href="#pablo">
-                   Home
-                </a>
-            </li>
-            <li>
-                <a href="#pablo">
-                    Contact Us
-                </a>
-            </li>
-        </ul>
+    <footer class="footer @yield('footer')">
+        <div class="container">
+            <ul class="pull-left col-xs-7">
+                <li>
+                    <a href="{{ url('/') }}">Home</a>
+                </li>
+                <li>
+                    <a href="{{ url('stories') }}">Stories</a>
+                </li>
+                <li>
+                    <a href="{{ url('contact') }}">Contact Us</a>
+                </li>
 
-        <div class="copyright pull-right">
-            &#169; {{date('Y')}} Society of Hispanic Professional Engineers - CSU, Northridge 
+            </ul>
+
+            <ul class="social-buttons pull-right col-xs-5">
+                <li>
+                    <a href="https://twitter.com/shpecsun" class="btn btn-just-icon btn-simple btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/shpecsun" class="btn btn-just-icon btn-simple btn-facebook">
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/shpecsun" class="btn btn-just-icon btn-simple btn-instagram">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://slack.shpecsun.org" class="btn btn-just-icon btn-simple btn-slack">
+                        <i class="fa fa-slack"></i>
+                    </a>
+                </li>
+            </ul>
+
         </div>
-    </div>
-</footer>
-<!--   Core JS Files   -->
+    </footer>
+</body>
     <script src="{{asset('js/theme.js')}}" type="text/javascript"></script>
-    <!-- Plugin For Google Maps -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-
 </html>

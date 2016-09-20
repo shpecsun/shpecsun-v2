@@ -11,11 +11,17 @@
 |
 */
 
+// Auth::routes();
+// Route::get('logout','Auth\LoginController@logout');
+
 Route::get('/', 'HomeController@index');
 Route::get('stories', 'HomeController@stories');
 Route::get('stories/{slug}','HomeController@story');
 Route::get('slack','HomeController@loginSlack');
-Auth::routes();
-Route::get('profile',function(){
-	return view('profile');
+Route::get('subscribe', function() {
+    return view('subscribe');
 });
+
+// Route::get('profile',function(){
+// 	return view('profile');
+// });

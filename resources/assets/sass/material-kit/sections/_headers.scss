@@ -51,11 +51,9 @@
         position: relative;
     }
 
-    &[filter-color="purple"],
-    &[filter-color="primary"]{
+    &[filter-color="purple"]{
         &:after{
             @include linear-gradient(rgba($purple-100,.56), rgba($purple-300,.95));
-
         }
     }
     &[filter-color="blue"],
@@ -78,6 +76,7 @@
     }
 
     &[filter-color="red"],
+    &[filter-color="primary"],
     &[filter-color="danger"]{
         &:after{
             @include linear-gradient(rgba($red-200,.56), rgba($red-400,.95));

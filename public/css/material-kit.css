@@ -46,7 +46,7 @@
 .social-behance {
   color: #1769ff; }
 
-.social-slac {
+.social-slack {
   color: #3eb991; }
 
 /* Shadows (from mdl http://www.getmdl.io/) */
@@ -1086,6 +1086,23 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
     .btn.btn-slack.btn-simple,
     .navbar .navbar-nav > li > a.btn.btn-slack.btn-simple {
       color: #3eb991;
+      background-color: transparent;
+      box-shadow: none; }
+  .btn.btn-snapchat,
+  .navbar .navbar-nav > li > a.btn.btn-snapchat {
+    background-color: #FFFC00;
+    color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(255, 252, 0, 0.14), 0 3px 1px -2px rgba(255, 252, 0, 0.2), 0 1px 5px 0 rgba(255, 252, 0, 0.12); }
+    .btn.btn-snapchat:focus, .btn.btn-snapchat:active, .btn.btn-snapchat:hover,
+    .navbar .navbar-nav > li > a.btn.btn-snapchat:focus,
+    .navbar .navbar-nav > li > a.btn.btn-snapchat:active,
+    .navbar .navbar-nav > li > a.btn.btn-snapchat:hover {
+      background-color: #FFFC00;
+      color: #fff;
+      box-shadow: 0 14px 26px -12px rgba(255, 252, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(255, 252, 0, 0.2); }
+    .btn.btn-snapchat.btn-simple,
+    .navbar .navbar-nav > li > a.btn.btn-snapchat.btn-simple {
+      color: #FFFC00;
       background-color: transparent;
       box-shadow: none; }
   .btn:focus, .btn:active, .btn:active:focus,
@@ -2327,7 +2344,7 @@ select.form-control {
     border-top: none;
     box-shadow: none; }
   .navbar.navbar-default .logo-container .logo {
-    background-image: url("/public/assets/branding-dark.png");
+    background-image: url("/public/images/branding-dark.png");
     background-repeat: no-repeat;
     background-size: contain;
     height: 55px;
@@ -2948,7 +2965,7 @@ h2.title {
   display: inline-block;
   position: relative;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   border-radius: 6px;
   color: rgba(0,0,0, 0.87);
   background: #fff;
@@ -3003,8 +3020,8 @@ h2.title {
       color: #FFFFFF; }
   .card .header-primary,
   .card .content-primary {
-    background: -webkit-linear-gradient(30deg, #ab47bc, #7b1fa2);
-    background: linear-gradient(60deg, #ab47bc, #7b1fa2); }
+    background: -webkit-linear-gradient(30deg, #ef5350, #d32f2f);
+    background: linear-gradient(60deg, #ef5350, #d32f2f); }
   .card .header-info,
   .card .content-info {
     background: -webkit-linear-gradient(30deg, #26c6da, #0097a7);
@@ -3025,6 +3042,10 @@ h2.title {
   .card .content-rose {
     background: -webkit-linear-gradient(30deg, #ec407a, #c2185b);
     background: linear-gradient(60deg, #ec407a, #c2185b); }
+  .card .header-black,
+  .card .content-black {
+    background: -webkit-linear-gradient(30deg, #D00D2D, #d32f2f);
+    background: linear-gradient(60deg, #D00D2D, #d32f2f); }
   .card [class*="header-"],
   .card [class*="content-"] {
     color: #FFFFFF; }
@@ -3101,36 +3122,34 @@ h2.title {
   .card .radio {
     margin-top: 16px; }
 
-.card-signup .header {
-  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: -40px;
-  padding: 20px 0; }
-
-.card-signup .text-divider {
-  margin-top: 30px;
-  margin-bottom: 0px;
-  text-align: center; }
-
-.card-signup .content {
-  padding: 0px 30px 0px 10px; }
-
-.card-signup .checkbox {
-  margin-top: 20px; }
-  .card-signup .checkbox label {
-    margin-left: 17px; }
-  .card-signup .checkbox .checkbox-material {
-    padding-right: 12px; }
-
-.card-signup .social-line {
-  margin-top: 15px;
-  text-align: center;
-  padding: 0; }
-  .card-signup .social-line .btn {
-    color: #FFFFFF;
-    margin-left: 5px;
-    margin-right: 5px; }
+.card-signup {
+  padding-bottom: 25px; }
+  .card-signup .header {
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -40px;
+    padding: 20px 0; }
+  .card-signup .text-divider {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    text-align: center; }
+  .card-signup .content {
+    padding: 0px 30px 0px 10px; }
+  .card-signup .checkbox {
+    margin-top: 20px; }
+    .card-signup .checkbox label {
+      margin-left: 17px; }
+    .card-signup .checkbox .checkbox-material {
+      padding-right: 12px; }
+  .card-signup .social-line {
+    margin-top: 15px;
+    text-align: center;
+    padding: 0; }
+    .card-signup .social-line .btn {
+      color: #FFFFFF;
+      margin-left: 5px;
+      margin-right: 5px; }
 
 .card-contact .header {
   margin-top: -20px; }
@@ -4335,7 +4354,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
 
 .section-gray {
   background: #E5E5E5;
-  padding: 50px; }
+  padding: 50px 0px; }
 
 .section-light-gray {
   background: #eee; }
@@ -4424,7 +4443,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
 
 .section-dark,
 .section-image {
-  padding: 80px;
+  padding: 80px 0px;
   background-color: #343434;
   background-size: 200% 240%;
   background: #232323;
@@ -4530,7 +4549,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
   .header-filter .container {
     z-index: 2;
     position: relative; }
-  .header-filter[filter-color="purple"]:after, .header-filter[filter-color="primary"]:after {
+  .header-filter[filter-color="purple"]:after {
     background: rgba(225, 190, 231, 0.56);
     /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(60deg, rgba(225, 190, 231, 0.56), rgba(186, 104, 200, 0.95));
@@ -4570,7 +4589,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
     background: -webkit-linear-gradient(30deg, rgba(255, 224, 178, 0.56), rgba(255, 183, 77, 0.95));
     background: linear-gradient(60deg, rgba(255, 224, 178, 0.56), rgba(255, 183, 77, 0.95));
     /* Standard syntax */ }
-  .header-filter[filter-color="red"]:after, .header-filter[filter-color="danger"]:after {
+  .header-filter[filter-color="red"]:after, .header-filter[filter-color="primary"]:after, .header-filter[filter-color="danger"]:after {
     background: rgba(239, 154, 154, 0.56);
     /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(60deg, rgba(239, 154, 154, 0.56), rgba(239, 83, 80, 0.95));
@@ -5734,15 +5753,19 @@ footer {
   .subscribe-line .btn {
     margin-top: 15px; } }
 
+@media (max-width: 768px) {
+  .container {
+    width: 700px; } }
+
 #video_background {
-  position: fixed;
-  top: 0px;
+  position: absolute;
+  top: 0;
   right: 0px;
   min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
-  z-index: 1;
+  z-index: -1000;
   overflow: hidden;
   background-image: url("../images/video_bg.png");
   background-position: center center;
@@ -5759,7 +5782,7 @@ footer {
   z-index: 1; }
 
 .cover {
-  position: fixed;
+  position: absolute;
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.6);
   left: 0px;
@@ -5834,5 +5857,8 @@ shpe {
   line-height: 40px;
   padding-right: 4px;
   padding-left: 3px; }
+
+.signup {
+  background-color: black; }
 
 /*# sourceMappingURL=material-kit.css.map */

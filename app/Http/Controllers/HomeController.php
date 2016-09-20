@@ -10,6 +10,7 @@ use DateTime;
 use DateTimeZone;
 use App\boardmembers;
 use App\blog;
+use Auth;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
@@ -41,8 +42,6 @@ class HomeController extends Controller
         $blog = blog::where('slug',$slug)->with('author_image','banner_image')->first();
         return view('story',compact('blog'));
     }
-
-
 
     private function socialMedia()
     {

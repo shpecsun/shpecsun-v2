@@ -18,7 +18,7 @@ class CreateLinksTable extends Migration
             $table->string('link');
             $table->string('entity');
             $table->string('type');
-            $table->string('fa_icon');
+            $table->string('fa_icon')->nullable();
             $table->timestamps();
         });
     }

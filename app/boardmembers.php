@@ -15,7 +15,7 @@ class boardmembers extends Model
     }
     public function links()
     {
-    	return $this->hasMany('App\links','entity','email');
+    	return $this->hasMany('App\links','entity','email')->orderBy('type');
     }
 
 }
