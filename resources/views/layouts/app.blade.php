@@ -43,27 +43,27 @@
 
     <div class="collapse navbar-collapse navbar-right col-xs-5" id="mobile-nav">
       <ul class="nav navbar-nav navbar-right">
-            <li>
+            <li class="hidden-sm hidden-xs">
                 <a href="https://twitter.com/shpecsun">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
-            <li>
+            <li class="hidden-sm hidden-xs">
                 <a href="https://www.facebook.com/shpecsun">
                     <i class="fa fa-facebook-square"></i>
                 </a>
             </li>
-            <li>
+            <li class="hidden-sm hidden-xs">
                 <a href="https://www.instagram.com/shpecsun">
                     <i class="fa fa-instagram"></i>
                 </a>
             </li>
-            <li>
+            <li class="hidden-sm hidden-xs">
                 <a href="http://slack.shpecsun.org">
                     <i class="fa fa-slack"></i>
                 </a>
             </li>
-{{--             <li class="dropdown">
+            <li class="dropdown">
                 @if (Auth::user())
                 <a href="#pablo" class="profile-photo dropdown-toggle" data-toggle="dropdown">
                   <div class="navbar-text pull-left">{{ strtok(Auth::user()->name,' ') }}</div>
@@ -94,7 +94,7 @@
                     <li><a href="{{url('/profile')}}">Profile</a></li>
                 </ul>
                 @endif
-            </li> --}}
+            </li>
        </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-->
