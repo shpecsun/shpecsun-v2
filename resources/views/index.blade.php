@@ -17,7 +17,7 @@
 @endsection --}}
 
 @section('content')
-<div class="page-header header-filter" data-parallax="active" style="background-image: {{ asset('/images/banner.png') }}; z-index: -1;">
+<div class="page-header header-filter" data-parallax="active" style="background-image: {{ asset('/images/banner.png') }};">
     <video id="video_background" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
             <source src="video/shpecsun.webm" type="video/webm">
             <source src="video/shpecsun.mp4" type="video/mp4">
