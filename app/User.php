@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    use Billable;
+
 
     /**
      * The attributes that are mass assignable.
@@ -30,6 +32,10 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne('App\images','entity','email')->first();
+    }
+    public function userInfo()
+    {
+        return $this->hasOne('App\userInfo','user_id')->first();
     }
     
 }

@@ -21,7 +21,7 @@
                     </div>
                     <div class="name">
                         <h3 class="title">{{Auth::user()->name}}</h3>
-                        <h6>President - SHPE CSUN</h6>
+                        <h6>Studies </h6>
                     </div>
                 </div>
             </div>
@@ -56,9 +56,9 @@
             @endif
             <div class="form-group label-floating">
                 <label class="control-label">Major</label>
-                <input id="major" type="text" class="form-control" name="major"  value="">
+                <input id="major" type="text" class="form-control" name="major"  value="{{ Auth::user()->userInfo()->major }}">
             </div>
-            <div class="label-floating is-empty">
+            <div class="form-group label-floating is-empty">
                 <label class="control-label"> Tell us a little about yourself</label>
                 <textarea class="form-control" rows="3"></textarea>
                 <span class="material-input"></span>

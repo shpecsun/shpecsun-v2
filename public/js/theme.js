@@ -1461,4 +1461,7 @@ function isElementInViewport(elem) {
     return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
 }
 
+///////
+Smooch.init({ appToken: 'au56hgqdhpu3g931syi104dsb' });
+
 //# sourceMappingURL=theme.js.map
