@@ -21,7 +21,7 @@ Route::get('slack','HomeController@loginSlack');
 Route::get('subscribe', function() {
     return view('subscribe');
 });
-Route::get('signup', function() {
+Route::get('membership', function() {
     return view('signup');
 });
 
