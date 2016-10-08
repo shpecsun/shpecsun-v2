@@ -58,7 +58,13 @@ class HomeController extends Controller
         
         $promises = [
             // 'fb'    => $client->getAsync($fbAPI),
-            'insta' => $client->getAsync($instaAPI)
+            'insta' => $client->getAsync($instaAPI, [
+                'stream' => true,
+                'stream_content' => [
+                    'ssl' => ['allow_self_signed' => true]
+                ]
+
+            ])
         ];
 
         // Wait on all of the requests to complete. Throws a ConnectException
@@ -68,7 +74,7 @@ class HomeController extends Controller
         // $fbResponse =  json_decode( $results['fb']->getBody(),true );
         // $fbPost = $fbResponse['data'][0];
 
-        $instaResponse =  json_decode( $results['insta']->getBody(),true );
+        $instaResponse =  json_decode( $results['insta']->getBody()->getContents(),true );
         $instaPost = $instaResponse['data'];
 
         foreach ($instaPost as &$post) {
