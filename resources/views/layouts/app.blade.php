@@ -28,7 +28,7 @@
     <meta name="msapplication-config" content="{{ asset('fav/browserconfig.xml')}}">
     <meta name="theme-color" content="#000000">
 
-    <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet"/>
     @yield('notification')
 </head>
 <nav class="navbar navbar-transparent navbar-absolute">
