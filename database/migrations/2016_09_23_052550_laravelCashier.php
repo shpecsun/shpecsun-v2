@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -12,7 +13,7 @@ class LaravelCashier extends Migration
      */
     public function up()
     {
-           Schema::table('users', function ($table) {
+        Schema::table('users', function ($table) {
             $table->string('stripe_id')->nullable();
             $table->string('card_brand')->nullable();
             $table->string('card_last_four')->nullable();
@@ -39,9 +40,9 @@ class LaravelCashier extends Migration
      */
     public function down()
     {
-        Schema::drop('subscriptions');
-        Schema::table('users', function ($table) {
+        Schema::table('users', function ($table){
             $table->dropColumn(['stripe_id', 'card_brand', 'card_last_four','trial_ends_at']);
         });
+        Schema::drop('subscriptions');
     }
 }

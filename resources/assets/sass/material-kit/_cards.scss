@@ -3,7 +3,7 @@
     display: inline-block;
     position: relative;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 
     .card-height-indicator {
         margin-top: 100%;
@@ -84,7 +84,7 @@
 
     .header-primary,
     .content-primary{
-        background: linear-gradient(60deg, $purple-400, $purple-700);
+        background: linear-gradient(60deg, $red-400, $red-700);
     }
     .header-info,
     .content-info{
@@ -106,6 +106,10 @@
     .header-rose,
     .content-rose{
         background: linear-gradient(60deg, $pink-400, $pink-700);
+    }
+    .header-black,
+    .content-black{
+        background: linear-gradient(60deg, $csun-red, $red-700);
     }
 
     [class*="header-"],
@@ -226,6 +230,7 @@
     }
 }
 .card-signup{
+    padding-bottom: 25px;
     .header{
         @include shadow-big();
         margin-left: 20px;

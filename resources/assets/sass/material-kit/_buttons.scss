@@ -96,6 +96,12 @@
     &.btn-behance {
     	@include social-buttons-color($social-behance);
     }
+    &.btn-slack {
+        @include social-buttons-color($social-slack);
+    }
+   &.btn-snapchat {
+        @include social-buttons-color($social-snapchat);
+    }
 
     &:focus,
     &:active,

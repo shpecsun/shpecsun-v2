@@ -1,12 +1,12 @@
 #video_background {
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: 1;
+    position: absolute; 
+    top: 0; 
+    right: 0px; 
+    min-width: 100%; 
+    min-height: 100%; 
+    width: auto; 
+    height: auto; 
+    z-index: -1000; 
     overflow: hidden;
     background-image: url('../images/video_bg.png');
     background-position: center center;
@@ -23,7 +23,7 @@
     z-index: 1;
 }
 .cover{
-    position: fixed;
+    position: absolute;
     opacity: 1;
     background-color: rgba(0,0,0,.6);
     left: 0px;
@@ -102,5 +102,14 @@ shpe {
 .logo-shpe:before {
   content: "\73";
 }
-
+.blog-p::first-letter{   
+    float: left;  
+    font-weight: 500;
+    font-size: 3em;
+    font-family: "Oswald", "Times New Roman", serif; 
+    line-height: 40px; padding-right: 4px; padding-left: 3px;
+  }
+  .signup{
+    background-color: black;
+  }
 

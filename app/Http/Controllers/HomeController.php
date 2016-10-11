@@ -2,31 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use  \Socialize;
-use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Http\Requests;
 use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
-use App\Board;
+use App\boardmembers;
+use App\blog;
+use Auth;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise;
-
 use GuzzleHttp\Exception\RequestException;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $except = ['loginSlack','index'];
-        $this->middleware('auth',['except' => $except]);
-    }
 
     /**
      * Show the application dashboard.
@@ -36,12 +27,21 @@ class HomeController extends Controller
     public function index()
     {
         $instaPost = $this->socialMedia();
-        $members['board'] = Board::where('position_group','board')->get();
-        $members['chair'] = Board::where('position_group','chair')->get();
-        return view('index',compact('instaPost','members'));
+        $members['board'] = boardmembers::where('position_group','board')->with('image','links')->get();
+        $members['chair'] = boardmembers::where('position_group','chair')->with('image','links')->get();
+        $blogs = blog::with('author_image')->take(3)->get();
+        return view('index', compact('instaPost','members','blogs'));
     }
-
-
+    public function stories()
+    {
+        $blogs = blog::with('banner_image')->inRandomOrder()->get();
+        return view('blogs',compact('blogs'));
+    }
+    public function story($slug)
+    {
+        $blog = blog::where('slug',$slug)->with('author_image','banner_image')->first();
+        return view('story',compact('blog'));
+    }
 
     private function socialMedia()
     {
@@ -58,13 +58,7 @@ class HomeController extends Controller
         
         $promises = [
             // 'fb'    => $client->getAsync($fbAPI),
-            'insta' => $client->getAsync($instaAPI, [
-                'stream' => true,
-                'stream_content' => [
-                    'ssl' => ['allow_self_signed' => true]
-                ]
-
-            ])
+            'insta' => $client->getAsync($instaAPI)
         ];
 
         // Wait on all of the requests to complete. Throws a ConnectException
@@ -74,11 +68,12 @@ class HomeController extends Controller
         // $fbResponse =  json_decode( $results['fb']->getBody(),true );
         // $fbPost = $fbResponse['data'][0];
 
-        $instaResponse =  json_decode( $results['insta']->getBody()->getContents(),true );
+        $instaResponse =  json_decode( $results['insta']->getBody(),true );
         $instaPost = $instaResponse['data'];
 
         foreach ($instaPost as &$post) {
             $post['caption']['created_time'] = date('F d, Y - h:i A',$post['caption']['created_time']);
+            $post['caption']['text'] = Str::words($post['caption']['text'],40," ...");
         }
         return $instaPost;
     }
@@ -88,3 +83,4 @@ class HomeController extends Controller
         return Socialize::with('slack')->scopes(['identity.basic,identity.email,identity.team,identity.avatar'])->redirect();
     }
 }
+

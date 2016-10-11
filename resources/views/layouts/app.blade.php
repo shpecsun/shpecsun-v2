@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">    
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">    
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('fav/apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" href="{{ asset('fav/favicon-32x32.png')}}" sizes="32x32">
@@ -27,56 +27,57 @@
     <meta name="msapplication-TileImage" content="{{ asset('fav/mstile-144x144.png')}}">
     <meta name="msapplication-config" content="{{ asset('fav/browserconfig.xml')}}">
     <meta name="theme-color" content="#000000">
-
-    <link href="css/material-kit.css" rel="stylesheet"/>
+    <link href="{{ asset('css/material-kit.css') }}" rel="stylesheet"/>
     @yield('notification')
 </head>
 <nav class="navbar navbar-transparent navbar-absolute">
   <div class="container">
-    <div class="nav navbar-nav navbar-left">
+    <div class="nav navbar-nav navbar-left col-xs-6">
       <div class="logo-container disabled">
         <a href="{{ url('/') }}">
-            <div class="logo"><img src="{{ asset('images/branding.png') }}" class="img-responsive" alt=""></div>
+            <div class="logo"><img src="{{ asset('/images/branding.png') }}" class="img-responsive" alt=""></div>
         </a>
       </div>
     </div>
 
-    <div class="collapse navbar-collapse" id="mobile-nav">
+    <div class="collapse navbar-collapse navbar-right col-xs-5" id="mobile-nav">
       <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="https://twitter.com/shpe_csun">
+            <li class="hidden-sm hidden-xs">
+                <a href="https://twitter.com/shpecsun">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
-            <li>
+            <li class="hidden-sm hidden-xs">
                 <a href="https://www.facebook.com/shpecsun">
                     <i class="fa fa-facebook-square"></i>
                 </a>
             </li>
-            <li>
+            <li class="hidden-sm hidden-xs">
                 <a href="https://www.instagram.com/shpecsun">
                     <i class="fa fa-instagram"></i>
                 </a>
             </li>
-{{--             <li class="dropdown">
+            <li class="hidden-sm hidden-xs">
+                <a href="http://slack.shpecsun.org">
+                    <i class="fa fa-slack"></i>
+                </a>
+            </li>
+            <li class="dropdown">
                 @if (Auth::user())
                 <a href="#pablo" class="profile-photo dropdown-toggle" data-toggle="dropdown">
-                  <div class="navbar-text pull-left">{{ Auth::user()->first_name }}</div>
+                  <div class="navbar-text pull-left">{{ strtok(Auth::user()->name,' ') }}</div>
                    <div class="pull-right">
                        <div class="profile-photo-small">
-                            <img src="" alt="Circle Image" class="img-circle img-responsive">
+                            <img src="{{ asset( 'images'.Auth::user()->profile()->source ) }}" alt="Circle Image" class="img-circle img-responsive">
                         </div>
                     </div> 
                 </a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">
-                        {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} 
+                        {{ Auth::user()->name }}
                     </li>
                     <li>
-                        <a href="#pablo">Profile</a>
-                    </li>
-                    <li>
-                        <a href="#pablo">Settings and other stuff</a>
+                        <a href="{{ url('profile') }}">Profile</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}">Sign out</a></li>
@@ -92,38 +93,78 @@
                     <li><a href="{{url('/profile')}}">Profile</a></li>
                 </ul>
                 @endif
-            </li> --}}
+            </li>
        </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-->
 </nav>
-<body @yield('bodyTag')>
+
+<body class="@yield('bodyTag')">
     @yield('content')
-</body>
-<footer class="footer footer-light-grey footer-big">
-    <div class="container">
-        <ul class="pull-left">
-            <li>
-                <a href="#pablo">
-                   Home
-                </a>
-            </li>
-            <li>
-                <a href="#pablo">
-                    Contact Us
-                </a>
-            </li>
-        </ul>
+    <footer class="footer @yield('footer')">
+        <div class="container">
+            <ul class="pull-left col-xs-7">
+                <li>
+                    <a href="{{ url('/') }}">Home</a>
+                </li>
+                <li>
+                    <a href="{{ url('stories') }}">Stories</a>
+                </li>
+                <li>
+                    <a href="{{ url('contact') }}">Contact Us</a>
+                </li>
 
-        <div class="copyright pull-right">
-            &#169; {{date('Y')}} Society of Hispanic Professional Engineers - CSU, Northridge 
+            </ul>
+
+            <ul class="social-buttons pull-right col-xs-5">
+                <li>
+                    <a href="https://twitter.com/shpecsun" class="btn btn-just-icon btn-simple btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/shpecsun" class="btn btn-just-icon btn-simple btn-facebook">
+                        <i class="fa fa-facebook-square"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/shpecsun" class="btn btn-just-icon btn-simple btn-instagram">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://slack.shpecsun.org" class="btn btn-just-icon btn-simple btn-slack">
+                        <i class="fa fa-slack"></i>
+                    </a>
+                </li>
+            </ul>
+
         </div>
-    </div>
-</footer>
-
-<!--   Core JS Files   -->
-    <script src="js/theme.js" type="text/javascript"></script>
-    <!-- Plugin For Google Maps -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-
+    </footer>
+</body>
+    <script src="{{asset('js/theme.js')}}" type="text/javascript"></script>
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0, 
+      t.methods = [ "identify", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, r;
+        e = 3e5, r = Math.ceil(new Date() / e) * e, o = document.createElement("script"), 
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + r + "/" + t + ".js", 
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.2.0'
+    drift.load('g2xg7ttsg36n')
+    </script>
+    <!-- End of Async Drift Code -->
 </html>
