@@ -4,7 +4,7 @@
 @section('title', 'Profile')
 
 @section('content')
-<div class="page-header header-filter" data-parallax="active" style="background-image: url('http://i.imgur.com/Bx0aP4q.jpg?1');"></div>
+<div class="page-header header-filter" data-parallax="active" style="background-image: url({{ asset('images/profile-banner.jpg') }}"></div>
 <div class="row">
 <div class="col-lg-1"></div>
 <div class="col-lg-3 col-md-4 main main-raised ">

@@ -4043,7 +4043,7 @@ select[data-dropdownjs][disabled] + .dropdownjs > input[readonly] {
 
 .profile-page .page-header {
   height: 380px;
-  background-position: top center; }
+  background-position: center; }
 
 .profile-page .profile {
   text-align: center; }
