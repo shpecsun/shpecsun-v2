@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Society of Hispanic Professioanl Engineers CSUN')
+@section('title', 'Society of Hispanic Professional Engineers CSUN')
 
 {{-- @section('notification')
 <div class="alert alert-danger">

@@ -59,7 +59,7 @@
                 </a>
             </li>
             <li>
-                <a href="http://slack.shpecsun.org">
+                <a href="http://shpecsun.slack.com">
                     <i class="fa fa-slack"></i>
                 </a>
             </li>
@@ -134,7 +134,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://slack.shpecsun.org" class="btn btn-just-icon btn-simple btn-slack">
+                    <a href="http://shpecsun.slack.com" class="btn btn-just-icon btn-simple btn-slack">
                         <i class="fa fa-slack"></i>
                     </a>
                 </li>
