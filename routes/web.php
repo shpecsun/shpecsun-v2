@@ -24,6 +24,9 @@ Route::get('subscribe', function() {
 Route::get('membership', function() {
     return view('signup');
 });
+Route::get('ylf',function(){
+    return Redirect::to('http://www.shpecsun.link/ylf');
+});
 
 // Route::get('profile',function(){
 // 	return view('profile');
