@@ -27,8 +27,8 @@ class HomeController extends Controller
     public function index()
     {
         $instaPost = $this->socialMedia();
-        $members['board'] = boardmembers::where('position_group','board')->with('image','links')->sortBy('order')->get();
-        $members['chair'] = boardmembers::where('position_group','chair')->with('image','links')->sortBy('order')->get();
+        $members['board'] = boardmembers::where('position_group','board')->with('image','links')->orderBy('order')->get();
+        $members['chair'] = boardmembers::where('position_group','chair')->with('image','links')->orderBy('order')->get();
         $blogs = blog::with('author_image')->take(3)->get();
         return view('index', compact('instaPost','members','blogs'));
     }
