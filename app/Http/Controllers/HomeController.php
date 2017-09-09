@@ -73,7 +73,12 @@ class HomeController extends Controller
 
         foreach ($instaPost as &$post) {
             $post['caption']['created_time'] = date('F d, Y - h:i A',$post['caption']['created_time']);
-            $post['caption']['text'] = Str::words($post['caption']['text'],40," ...");
+            
+            if (isset($post['caption']['text'])) {
+                $post['caption']['text'] = Str::words($post['caption']['text'],40," ...");
+            }else{
+                $post['caption']['text'] = "";
+            }
         }
         return $instaPost;
     }
