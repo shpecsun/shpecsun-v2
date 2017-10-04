@@ -16,15 +16,15 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('stories', 'HomeController@stories');
-Route::get('stories/{slug}','HomeController@story');
-Route::get('slack','HomeController@loginSlack');
-Route::get('subscribe', function() {
+Route::get('stories/{slug}', 'HomeController@story');
+Route::get('slack', 'HomeController@loginSlack');
+Route::get('subscribe', function () {
     return view('subscribe');
 });
-Route::get('membership', function() {
+Route::get('membership', function () {
     return view('signup');
 });
-Route::get('ylf',function(){
+Route::get('ylf', function () {
     return Redirect::to('http://www.shpecsun.link/ylf');
 });
 

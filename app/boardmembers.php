@@ -11,11 +11,11 @@ class boardmembers extends Model
 
     public function image()
     {
-    	return $this->hasOne('App\images','entity','email');
-    }
-    public function links()
-    {
-    	return $this->hasMany('App\links','entity','email')->orderBy('type');
+        return $this->hasOne('App\images', 'entity', 'email');
     }
 
+    public function links()
+    {
+        return $this->hasMany('App\links', 'entity', 'email')->orderBy('type');
+    }
 }
